@@ -1,4 +1,4 @@
-const url = require('url');
+const url = require('http');
 const availableTimes = {
     Monday: ["1:00", "1:30", "2:00", "2:30", "3:00", "3:30", "4:00", "4:30"],
     Tuesday: ["1:00", "1:30", "2:00", "2:30", "3:00", "3:30", "4:00", "4:30"],
@@ -12,8 +12,7 @@ const appointments = [
 
 const myserver = http.createServer(function (req, res) {
  res.writeHead(200, {'Content-Type': 'text/html'});
- res.write('<html> <body> <p> <strong> Hello World! </strong> </p> <p> Good Morning Class
- </p> </body> </html>'); //write (send) a response to the client
+ res.write('recieved'); //write (send) a response to the client
  res.end(); //end the response
 });
-myserver.listen(80); //the server object listens on port 80
+myserver.listen(80,function(){console.log("listening on port 80")}); //the server object listens on port 80
